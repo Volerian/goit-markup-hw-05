@@ -121,10 +121,9 @@ body {
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.02em;
-  color: #2e2f42;
+  color: #404bbf;
   padding: 24px 0;
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header-nav-link:hover,
@@ -137,13 +136,7 @@ body {
   color: #404bbf;
 }
 
-.header-nav-link:hover::after {
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: 0.02em;
-  color: #404bbf;
+.header-nav-link::after {
   content: "";
   position: absolute;
   left: 0;
@@ -155,13 +148,7 @@ body {
   border-radius: 2px;
 }
 
-.header-nav-link:focus::after {
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: 0.02em;
-  color: #404bbf;
+.header-nav-link::after {
   content: "";
   position: absolute;
   left: 0;
@@ -702,7 +689,7 @@ body {
   transform: translateY(0%);
 }
 
-/* ---------BACKDROP---------- */
+/* ---------BACKDROP-MODAL---------- */
 
 .backdrop {
   position: fixed;
@@ -749,23 +736,21 @@ body {
   align-items: center;
   justify-content: center;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .modal-close-btn:hover,
 .modal-close-btn:focus {
   background-color: #404bbf;
+  border: none;
+  fill: #ffffff;
 }
 .modal-icon {
-  background: #e7e9fc;
   border: none;
   border-radius: 50%;
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.modal-icon:hover,
-.modal-icon:focus {
-  fill: #ffffff;
-  background-color: #404bbf;
+
+.modal-icon:is(:hover, :focus) {
 }
 
 .is-hidden {
