@@ -37,7 +37,10 @@
           </a>
           <ul class="header-list list">
             <li class="header-nav-item">
-              <a class="header-nav-link link" href="./index.html">Studio</a>
+              <a class="after-nav-link header-nav-link link" href="./index.html"
+                >Studio
+                <hr class="after-nav-link" />
+              </a>
             </li>
             <li class="header-nav-item">
               <a class="header-nav-link link" href="./portfolio.html"
@@ -72,7 +75,9 @@
       <section class="hero hero-dark-bg">
         <div class="container hero-container">
           <h1 class="hero-header">Effective Solutions for Your Business</h1>
-          <button class="hero-button" type="button">Order Service</button>
+          <button class="hero-button" type="button" data-modal-open>
+            Order Service
+          </button>
         </div>
       </section>
 
@@ -475,5 +480,15 @@
         </div>
       </div>
     </footer>
+    <div data-modal class="backdrop is-hidden">
+      <div class="modal">
+        <button type="button" data-modal-close class="modal-close-btn">
+          <svg class="modal-icon" width="24" height="24">
+            <use href="./images/icons.svg#icon-close"></use>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <script src="./js/modal.js"></script>
   </body>
 </html>

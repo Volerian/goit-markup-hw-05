@@ -122,6 +122,7 @@ body {
   letter-spacing: 0.02em;
   color: #2e2f42;
   padding: 24px 0;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header-nav-link:is(:hover, :focus) {
@@ -131,6 +132,14 @@ body {
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: #404bbf;
+}
+
+.after-nav-link::after {
+  width: 48px;
+  height: 4px;
+  margin: 0;
+  background: #404bbf;
+  border-radius: 2px;
 }
 
 .header-address {
@@ -152,6 +161,7 @@ body {
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: #434455;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header-adrs-link:is(:hover, :focus) {
@@ -167,6 +177,7 @@ body {
 
 .hero {
   max-width: 1440px;
+  margin: 0 auto;
   background-image: linear-gradient(
       rgba(46, 47, 66, 0.7),
       rgba(46, 47, 66, 0.7)
@@ -216,6 +227,7 @@ body {
   border-radius: 4px;
   cursor: pointer;
   display: block;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hero-button:is(:hover, :focus) {
@@ -376,6 +388,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-list-link:is(:hover, :focus) {
@@ -419,6 +432,7 @@ body {
   justify-content: center;
   align-items: center;
   color: #8e8f99;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .fourth-link:is(:hover, :focus) {
@@ -509,6 +523,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-social-link:is(:hover, :focus) {
@@ -549,6 +564,7 @@ body {
   border: 1px solid #e7e9fc;
   border-radius: 4px;
   padding: 12px 24px;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .filter-item:is(:hover, :focus) {
@@ -586,6 +602,7 @@ body {
 .project-link {
   display: block;
   box-shadow: none;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .project-link:is(:hover, :focus) {
@@ -616,17 +633,112 @@ body {
   color: #434455;
 }
 
+/* --------ANIMATION------------ */
+
+.project-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 15px;
+  background-color: #4d5ae5;
+  color: #fff;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: #f4f4fd;
+  overflow: auto;
+  transform: translateY(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-link:hover .overlay,
+.project-link:focus .overlay {
+  transform: translateY(0%);
+}
+
+/* ---------BACKDROP---------- */
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(46, 47, 66, 0.4);
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition: opacity 250ms linear, visibility 250ms linear;
+}
+
+.modal {
+  position: absolute;
+  width: 408px;
+  height: 584px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fcfcfc;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.modal-close-btn {
+  position: absolute;
+  padding: 0;
+  top: 24px;
+  right: 24px;
+  border: none;
+  width: 24px;
+  height: 24px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-icon {
+  background: #e7e9fc;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+}
+
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
 /* пример смены цвета при наведении на елемент
 .header-link:hover{
     color: blue;
 } 
 пример смены цвета при зажимании елемента
 .header-link:focus{
-    color: blue;
+  color: blue;
 }
 это же, но компактнее
 .header-link:is(:hover, :focus) {
-    color: blue;
+  color: blue;
+}
+
+или
+.header-link:hover,
+.header-link:focus {
+  color: blue;
+}
 
 У рядкових і рядково-блокових елементів є 
 правий або, у разі зображень, нижній проміжок. 
